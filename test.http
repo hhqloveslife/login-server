@@ -1,0 +1,25 @@
+@url=http://localhost:3001
+@json = Content-Type: application/json
+###
+get {{url}}/users
+###注册
+post {{url}}/register
+{{json}}
+
+{
+  "username": "user1",
+  "password": "123456"
+}
+###登录
+post {{url}}/login
+{{json}}
+
+{
+  "username": "user1",
+  "password": "123456"
+}
+###
+//获取用户数据,传递了什么token就返回什么数据
+get {{url}}/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNjE4NjNiNjMwMjM0MjdkYWQ5YTZlZCIsImlhdCI6MTY1MDU1ODUyN30.5QD5Ndy-r4IEoeHZqod8o7NuKtBKzL2UxFpIT80Jtg4
+//上面的token值每次测试都要修改
